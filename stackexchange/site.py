@@ -226,7 +226,8 @@ through here."""
         return self._get(User, ids, 'users', kw)
     
     def users_by_name(self, name, **kw):
-        kw['filter'] = name
+        """Retrieves a list of the users whose username contains `name` as a substring"""
+        kw['inname'] = name
         return self.users(**kw)
 
     def moderators(self, **kw):
